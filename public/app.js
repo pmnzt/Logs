@@ -3,8 +3,11 @@ import { Payment } from './classes/Payment.js';
 import { Template } from './classes/Template.js';
 const form = document.querySelector('form');
 const ul = document.querySelector('ul');
-const list = new Template(ul);
+const list = new Template(ul, form);
 form.addEventListener('submit', (e) => {
+    const submitButton = document.querySelector('.submitButton');
+    if (submitButton.innerText !== 'Add')
+        return;
     e.preventDefault();
     const type = document.querySelector('#type').value;
     const toFrom = document.querySelector('#tofrom').value;
